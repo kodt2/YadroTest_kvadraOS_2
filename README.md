@@ -1,0 +1,1 @@
+# YadroTest_kvadraOS_2
