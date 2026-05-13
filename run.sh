@@ -31,7 +31,7 @@ $SUDO_CMD apt-get install -y $PACKAGES
 echo "--- 2. Building Backend (C++) ---"
 mkdir -p backend/build
 cd backend/build
-cmake .. 
+cmake .. -DCMAKE_POLICY_VERSION_MINIMUM=3.5
 make -j$(nproc)
 cd ../..
 
@@ -42,7 +42,7 @@ mkdir -p public/src
 echo "--- 4. Compiling Frontend (TypeScript) ---"
 cd frontend
 npm install --quiet
-npx tsc --outDir ../public/
+npx tsc --outDir ../public/src/
 cd ..
 
 echo "--- 5. Copying Static Assets ---"
