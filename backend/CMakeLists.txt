@@ -8,6 +8,7 @@ include(FetchContent)
 find_package(Threads REQUIRED)
 find_package(Threads REQUIRED)
 find_package(ZLIB REQUIRED)
+find_package(OpenSSL REQUIRED)
 
 FetchContent_Declare(
   ixwebsocket
