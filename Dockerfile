@@ -10,18 +10,20 @@ WORKDIR /app
 COPY . .
 
 RUN mkdir -p backend/build && cd backend/build && cmake .. && make -j$(nproc)
-RUN mkdir -p public/src
-RUN cd frontend && npm install && npx tsc --outDir ../public/
+
+RUN rm -rf public && mkdir -p public/src
+RUN cd frontend && npm install && npx tsc --outDir ../public/src/
 RUN cp frontend/*.html public/
 RUN cp frontend/*.css public/
-
 
 FROM ubuntu:22.04
 RUN apt-get update && apt-get install -y libssl3 zlib1g && rm -rf /var/lib/apt/lists/*
 
 WORKDIR /app
+
 COPY --from=builder /app/backend/build/monitor_backend .
-COPY --from=builder /app/public ./public/src
+
+COPY --from=builder /app/public ./public
 
 EXPOSE 8080
 CMD ["./monitor_backend"]
