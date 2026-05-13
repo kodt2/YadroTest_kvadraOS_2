@@ -1,0 +1,10 @@
+node_modules/
+
+*.js
+*.js.map
+
+npm-debug.log*
+.eslintcache
+
+.vscode/
+.idea/

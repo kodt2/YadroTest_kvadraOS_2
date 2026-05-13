@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Yadro Monitoring System</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+    <div class="dashboard">
+        <header>
+            <h1>[ KVADRA OS MONITOR ]</h1>
+            <div id="status">● LIVE</div>
+        </header>
+
+        <div class="grid">
+            <section class="main-stats">
+                <div class="stat-group">
+                    <div class="label-row">
+                        <span>CPU Usage</span>
+                        <span id="cpu-perc">0%</span>
+                    </div>
+                    <div class="bar-bg"><div id="cpu-bar" class="bar-fill cpu-fill"></div></div>
+                    <div class="chart-container">
+                        <canvas id="cpuChart"></canvas>
+                    </div>
+                </div>
+
+                <div class="stat-group">
+                    <div class="label-row">
+                        <span>RAM Usage</span>
+                        <span id="ram-perc">0%</span>
+                    </div>
+                    <div class="bar-bg"><div id="ram-bar" class="bar-fill ram-fill"></div></div>
+                </div>
+
+                <h3>Temperatures</h3>
+                <div id="temp-grid" class="temp-grid"></div>
+            </section>
+
+            <section class="process-section">
+                <h3>Top Processes (by RAM)</h3>
+                <table class="proc-table">
+                    <thead>
+                        <tr>
+                            <th>PID</th>
+                            <th>Name</th>
+                            <th>Memory</th>
+                        </tr>
+                    </thead>
+                    <tbody id="proc-body"></tbody>
+                </table>
+            </section>
+        </div>
+    </div>
+    <script type="module" src="src/app.js"></script>
+</body>
+</html>
