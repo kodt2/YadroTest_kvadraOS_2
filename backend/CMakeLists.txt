@@ -43,5 +43,6 @@ target_link_libraries(monitor_backend
     nlohmann_json::nlohmann_json
     Threads::Threads
     ZLIB::ZLIB
-    $<$<PLATFORM_ID:Linux>:ssl crypto>
+    OpenSSL::SSL
+    OpenSSL::Crypto
 )
