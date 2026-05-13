@@ -195,7 +195,7 @@ Backend:
 ```bash
 mkdir -p backend/build
 cd backend/build
-cmake ..
+cmake .. -DCMAKE_POLICY_VERSION_MINIMUM=3.5
 make -j"$(nproc)"
 cd ../..
 ```
