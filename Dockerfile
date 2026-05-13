@@ -1,4 +1,3 @@
-# Сборка
 FROM ubuntu:22.04 AS builder
 ENV DEBIAN_FRONTEND=noninteractive
 
@@ -15,6 +14,7 @@ RUN cd frontend && npm install && npx tsc --outDir ../public/
 
 FROM ubuntu:22.04
 RUN apt-get update && apt-get install -y libssl3 zlib1g && rm -rf /var/lib/apt/lists/*
+
 WORKDIR /app
 COPY --from=builder /app/backend/build/monitor_backend .
 COPY --from=builder /app/public ./public

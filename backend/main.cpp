@@ -61,8 +61,6 @@ int main() {
     wsServer.start();
 
     std::thread httpThread([&]() {
-        httplib::Server svr;
-        svr.set_mount_point("/", "./public");
         
         svr.Get("/api/stats", [&](const httplib::Request&, httplib::Response& res) {
             auto stats = monitor.getLatestStats();

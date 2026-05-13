@@ -1,0 +1,5 @@
+backend/build
+frontend/node_modules
+public
+.git
+.vscode
