@@ -1,0 +1,10 @@
+version: '3.8'
+
+services:
+  monitor:
+    build: .
+    image: system-monitor:latest
+    container_name: system_monitor_app
+    ports:
+      - "8080:8080"
+    restart: unless-stopped
