@@ -36,7 +36,7 @@ int main() {
     ix::WebSocketServer wsServer(8081, "0.0.0.0");
 
     wsServer.setOnConnectionCallback([&](std::weak_ptr<ix::WebSocket> webSocketPtr, std::shared_ptr<ix::ConnectionState> connectionState) {
-        auto webSocket = webSocketPtr.lock(); // Превращаем в shared_ptr
+        auto webSocket = webSocketPtr.lock();
         if (!webSocket) return;
 
         webSocket->setOnMessageCallback([webSocketPtr](const ix::WebSocketMessagePtr& msg) {
